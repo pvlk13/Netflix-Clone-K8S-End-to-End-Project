@@ -64,7 +64,10 @@ pipeline{
         stage('TRIVY FS SCAN') {
             steps {
                 dir('Application-Code') {
-                    sh "trivy fs . > trivyfs.txt"
+                    sh '''
+                       export PATH=/opt/homebrew/bin:$PATH
+                       trivy fs . > trivyfs.txt
+                     '''
                 }
             }
         }
