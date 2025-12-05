@@ -61,16 +61,6 @@ pipeline{
                 }
             }
         }
-        stage('TRIVY FS SCAN') {
-            steps {
-                dir('Application-Code') {
-                    sh '''
-                    export PATH=/opt/homebrew/bin:$PATH
-                    trivy fs . > trivyfs.txt
-                     '''
-                }
-            }
-        }
         stage("Docker Image Build"){
             steps{
                 dir('Application-Code') {
