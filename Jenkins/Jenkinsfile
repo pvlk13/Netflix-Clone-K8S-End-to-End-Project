@@ -29,7 +29,7 @@ pipeline{
             steps {
                 dir('Application-Code') {
                     withSonarQubeEnv('sonar-server') {
-                        // Run SonarQube scanner using npx (no global install)
+                        // Run SonarQube scanner using npx for code smell
                         sh '''
                         echo "🔍 Starting SonarQube Analysis..."
                         npx @sonar/scan \
